@@ -82,3 +82,18 @@ export const Button = styled.button`
     background: #ea6f5a;
   }
 `
+export const SearchWrapper = styled.div`
+  float: left;
+  position: relative;
+  .iconfont{
+    position: absolute;
+    top: 14px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    color: #999;
+  }
+`

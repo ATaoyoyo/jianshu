@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { CSSTransition } from 'react-transition-group'
 import {
   HeaderWrapper,
   Logo,
@@ -11,6 +12,14 @@ import {
 } from './style'
 
 class Header extends Component {
+  constructor() {
+    super()
+    this.state = {
+      fouced: false,
+    }
+    this.handleInputFocuce = this.handleInputFocuce.bind(this)
+    this.handleInputBlur = this.handleInputBlur.bind(this)
+  }
   render() {
     return (
       <HeaderWrapper>
@@ -21,8 +30,24 @@ class Header extends Component {
           <NavItem className="right">登录</NavItem>
           <NavItem className="right">Aa</NavItem>
           <SearchWrapper>
-            <NavSearch />
-            <span className="iconfont iconfangdajing"></span>
+            <CSSTransition
+              in={this.state.fouced}
+              timeout={200}
+              classNames="slide"
+            >
+              <NavSearch
+                className={this.state.fouced ? 'fouced' : ''}
+                onFocus={this.handleInputFocuce}
+                onBlur={this.handleInputBlur}
+              />
+            </CSSTransition>
+            <span
+              className={
+                !this.state.fouced
+                  ? 'iconfont iconfangdajing'
+                  : 'iconfont iconfangdajing fouced'
+              }
+            ></span>
           </SearchWrapper>
           <Addtion>
             <Button className="reg">注册</Button>
@@ -33,6 +58,18 @@ class Header extends Component {
         </Nav>
       </HeaderWrapper>
     )
+  }
+
+  handleInputFocuce() {
+    this.setState({
+      fouced: true,
+    })
+  }
+
+  handleInputBlur() {
+    this.setState({
+      fouced: false,
+    })
   }
 }
 

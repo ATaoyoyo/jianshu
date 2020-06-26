@@ -3,6 +3,7 @@ import { fromJS } from 'immutable'
 
 const initState = fromJS({
   fouce: false,
+  list: []
 })
 
 export default (state = initState, action) => {
@@ -12,6 +13,10 @@ export default (state = initState, action) => {
 
   if (action.type === constants.SEARCH_BLUR) {
     return state.set('fouce', false)
+  }
+
+  if(action.type === constants.HEADER_LIST) {
+    return state.set('list', action.data)
   }
   return state
 }

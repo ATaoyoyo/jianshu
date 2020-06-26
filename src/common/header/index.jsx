@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import { actionCreator } from './store'
@@ -17,73 +17,77 @@ import {
   SearchItem,
 } from './style'
 
-const showSearchItem = (show) => {
-  if (show) {
+class Header extends Component {
+  showSearchItem() {
+    if (this.props.fouce) {
+      return (
+        <SearchContainer>
+          <SearchTitle>
+            热门搜索
+            <SearchSwitch>换一批</SearchSwitch>
+          </SearchTitle>
+          {this.props.list.map((item) => {
+            return <SearchItem key={item}>{item}</SearchItem>
+          })}
+        </SearchContainer>
+      )
+    }
+    return null
+  }
+
+  render() {
     return (
-      <SearchContainer>
-        <SearchTitle>
-          热门搜索
-          <SearchSwitch>换一批</SearchSwitch>
-        </SearchTitle>
-        <SearchItem>教育</SearchItem>
-        <SearchItem>教育</SearchItem>
-        <SearchItem>教育</SearchItem>
-        <SearchItem>教育</SearchItem>
-        <SearchItem>教育</SearchItem>
-        <SearchItem>教育</SearchItem>
-        <SearchItem>教育</SearchItem>
-      </SearchContainer>
+      <HeaderWrapper>
+        <Logo />
+        <Nav>
+          <NavItem className="left active">首页</NavItem>
+          <NavItem className="left">下载App</NavItem>
+          <NavItem className="right">登录</NavItem>
+          <NavItem className="right">Aa</NavItem>
+          <SearchWrapper>
+            <CSSTransition
+              in={this.props.fouce}
+              timeout={200}
+              classNames="slide"
+            >
+              <NavSearch
+                className={this.props.fouce ? 'fouced' : ''}
+                onFocus={this.props.handleInputFocuce}
+                onBlur={this.props.handleInputBlur}
+              />
+            </CSSTransition>
+            <span
+              className={
+                !this.props.fouce
+                  ? 'iconfont iconfangdajing'
+                  : 'iconfont iconfangdajing fouced'
+              }
+            ></span>
+            {this.showSearchItem()}
+          </SearchWrapper>
+          <Addtion>
+            <Button className="reg">注册</Button>
+            <Button className="writting">
+              <span className="iconfont iconyumaobi"></span>写文章
+            </Button>
+          </Addtion>
+        </Nav>
+      </HeaderWrapper>
     )
   }
-  return null
-}
-
-const Header = (props) => {
-  return (
-    <HeaderWrapper>
-      <Logo />
-      <Nav>
-        <NavItem className="left active">首页</NavItem>
-        <NavItem className="left">下载App</NavItem>
-        <NavItem className="right">登录</NavItem>
-        <NavItem className="right">Aa</NavItem>
-        <SearchWrapper>
-          <CSSTransition in={props.fouce} timeout={200} classNames="slide">
-            <NavSearch
-              className={props.fouce ? 'fouced' : ''}
-              onFocus={props.handleInputFocuce}
-              onBlur={props.handleInputBlur}
-            />
-          </CSSTransition>
-          <span
-            className={
-              !props.fouce
-                ? 'iconfont iconfangdajing'
-                : 'iconfont iconfangdajing fouced'
-            }
-          ></span>
-          {showSearchItem(props.fouce)}
-        </SearchWrapper>
-        <Addtion>
-          <Button className="reg">注册</Button>
-          <Button className="writting">
-            <span className="iconfont iconyumaobi"></span>写文章
-          </Button>
-        </Addtion>
-      </Nav>
-    </HeaderWrapper>
-  )
 }
 
 const mapStateToProps = (state) => {
   return {
     fouce: state.getIn(['header', 'fouce']),
+    list: state.getIn(['header', 'list'])
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     handleInputFocuce() {
+      dispatch(actionCreator.getList())
       dispatch(actionCreator.searchFouce())
     },
     handleInputBlur() {

@@ -124,8 +124,8 @@ export const SearchContainer = styled.div`
   top: 58px;
   left: 15px;
   padding: 20px;
-  width: 300px;
-  height: 100px;
+  width: 280px;
+  box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   color: #777;

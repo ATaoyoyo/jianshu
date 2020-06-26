@@ -3,20 +3,18 @@ import { fromJS } from 'immutable'
 
 const initState = fromJS({
   fouce: false,
-  list: []
+  list: [],
 })
 
 export default (state = initState, action) => {
-  if (action.type === constants.SEARCH_FOUCE) {
-    return state.set('fouce', true)
+  switch (action.type) {
+    case constants.SEARCH_FOUCE:
+      return state.set('fouce', true)
+    case constants.SEARCH_BLUR:
+      return state.set('fouce', false)
+    case constants.HEADER_LIST:
+      return state.set('list', action.data)
+    default:
+      return state
   }
-
-  if (action.type === constants.SEARCH_BLUR) {
-    return state.set('fouce', false)
-  }
-
-  if(action.type === constants.HEADER_LIST) {
-    return state.set('list', action.data)
-  }
-  return state
 }

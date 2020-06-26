@@ -2,17 +2,17 @@ import * as constants from './constants'
 import axios from 'axios'
 import { fromJS } from 'immutable'
 
+const getHeaderList = (data) => ({
+  type: constants.HEADER_LIST,
+  data: fromJS(data),
+})
+
 export const searchFouce = () => ({
   type: constants.SEARCH_FOUCE,
 })
 
 export const searchBlur = () => ({
   type: constants.SEARCH_BLUR,
-})
-
-const getHeaderList = (data) => ({
-  type: constants.HEADER_LIST,
-  data: fromJS(data)
 })
 
 export const getList = () => {

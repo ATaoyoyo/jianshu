@@ -19,14 +19,15 @@ import {
 
 class Header extends Component {
   showSearchItem() {
-    if (this.props.fouce) {
+    const { fouce, list } = this.props
+    if (fouce) {
       return (
         <SearchContainer>
           <SearchTitle>
             热门搜索
             <SearchSwitch>换一批</SearchSwitch>
           </SearchTitle>
-          {this.props.list.map((item) => {
+          {list.map((item) => {
             return <SearchItem key={item}>{item}</SearchItem>
           })}
         </SearchContainer>
@@ -36,6 +37,7 @@ class Header extends Component {
   }
 
   render() {
+    const { fouce, handleInputBlur, handleInputFocuce } = this.props
     return (
       <HeaderWrapper>
         <Logo />
@@ -45,20 +47,16 @@ class Header extends Component {
           <NavItem className="right">登录</NavItem>
           <NavItem className="right">Aa</NavItem>
           <SearchWrapper>
-            <CSSTransition
-              in={this.props.fouce}
-              timeout={200}
-              classNames="slide"
-            >
+            <CSSTransition in={fouce} timeout={200} classNames="slide">
               <NavSearch
-                className={this.props.fouce ? 'fouced' : ''}
-                onFocus={this.props.handleInputFocuce}
-                onBlur={this.props.handleInputBlur}
+                className={fouce ? 'fouced' : ''}
+                onFocus={handleInputFocuce}
+                onBlur={handleInputBlur}
               />
             </CSSTransition>
             <span
               className={
-                !this.props.fouce
+                !fouce
                   ? 'iconfont iconfangdajing'
                   : 'iconfont iconfangdajing fouced'
               }
@@ -80,7 +78,7 @@ class Header extends Component {
 const mapStateToProps = (state) => {
   return {
     fouce: state.getIn(['header', 'fouce']),
-    list: state.getIn(['header', 'list'])
+    list: state.getIn(['header', 'list']),
   }
 }
 

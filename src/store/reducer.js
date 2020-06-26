@@ -1,18 +1,8 @@
-const initState = {
-  fouce: false,
-}
+import headerReducer from './../common/header/store/reducer'
+import { combineReducers } from 'redux'
 
-export default (state = initState, action) => {
-  if (action.type === 'input_fouce') {
-    return {
-      fouce: true,
-    }
-  }
+const reducer = combineReducers({
+  header: headerReducer,
+})
 
-  if (action.type === 'input_blur') {
-    return {
-      fouce: false,
-    }
-  }
-  return state
-}
+export default reducer

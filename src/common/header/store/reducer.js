@@ -1,5 +1,5 @@
 import * as constants from './constants'
-import { fromJS, set } from 'immutable'
+import { fromJS } from 'immutable'
 
 const initState = fromJS({
   fouce: false,

@@ -11,7 +11,32 @@ import {
   Addtion,
   Button,
   SearchWrapper,
+  SearchContainer,
+  SearchTitle,
+  SearchSwitch,
+  SearchItem,
 } from './style'
+
+const showSearchItem = (show) => {
+  if (show) {
+    return (
+      <SearchContainer>
+        <SearchTitle>
+          热门搜索
+          <SearchSwitch>换一批</SearchSwitch>
+        </SearchTitle>
+        <SearchItem>教育</SearchItem>
+        <SearchItem>教育</SearchItem>
+        <SearchItem>教育</SearchItem>
+        <SearchItem>教育</SearchItem>
+        <SearchItem>教育</SearchItem>
+        <SearchItem>教育</SearchItem>
+        <SearchItem>教育</SearchItem>
+      </SearchContainer>
+    )
+  }
+  return null
+}
 
 const Header = (props) => {
   return (
@@ -37,6 +62,7 @@ const Header = (props) => {
                 : 'iconfont iconfangdajing fouced'
             }
           ></span>
+          {showSearchItem(props.fouce)}
         </SearchWrapper>
         <Addtion>
           <Button className="reg">注册</Button>
@@ -51,7 +77,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    fouce: state.getIn(['header', 'fouce'])
+    fouce: state.getIn(['header', 'fouce']),
   }
 }
 

@@ -116,6 +116,37 @@ export const SearchWrapper = styled.div`
   }
   .iconfont.fouced {
     color: #fff;
-    background: #777;
+    background: #969696;
   }
+`
+export const SearchContainer = styled.div`
+  position: absolute;
+  top: 58px;
+  left: 15px;
+  padding: 20px;
+  width: 300px;
+  height: 100px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: #777;
+`
+
+export const SearchTitle = styled.div`
+  font-size: 15px;
+  margin-bottom: 20px;
+`
+
+export const SearchSwitch = styled.div`
+  float: right;
+  font-size: 14px;
+`
+
+export const SearchItem = styled.div`
+  float: left;
+  margin: 0 20px 10px 0;
+  padding: 5px;
+  font-size: 12px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  color: #787878;
 `

@@ -54,7 +54,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    fouce: state.fouce
+    fouce: state.header.fouce
   }
 }
 

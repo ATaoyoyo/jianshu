@@ -51,7 +51,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    fouce: state.header.fouce,
+    fouce: state.header.get('fouce'),
   }
 }
 

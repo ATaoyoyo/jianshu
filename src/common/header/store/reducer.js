@@ -1,20 +1,17 @@
 import * as constants from './constants'
+import { fromJS, set } from 'immutable'
 
-const initState = {
+const initState = fromJS({
   fouce: false,
-}
+})
 
 export default (state = initState, action) => {
   if (action.type === constants.SEARCH_FOUCE) {
-    return {
-      fouce: true,
-    }
+    return state.set('fouce', true)
   }
 
   if (action.type === constants.SEARCH_BLUR) {
-    return {
-      fouce: false,
-    }
+    return state.set('fouce', false)
   }
   return state
 }

@@ -19,6 +19,8 @@ export const Logo = styled.a.attrs({ href: '/' })`
 
 export const Nav = styled.div`
   margin: 0 auto;
+  padding-right: 70px;
+  box-sizing: border-box;
   width: 960px;
   height: 58px;
 `

@@ -19,17 +19,37 @@ import {
 
 class Header extends Component {
   showSearchItem() {
-    const { fouce, list } = this.props
-    if (fouce) {
+    const {
+      fouce,
+      list,
+      page,
+      totalPage,
+      mouseIn,
+      handleMouseEnter,
+      handleMouseLeave,
+      handleChangePage,
+    } = this.props
+    const newList = list.toJS()
+    const pageList = []
+    if (newList.length) {
+      for (let i = (page - 1) * 10; i < page * 10; i++) {
+        const val = newList[i]
+        pageList.push(<SearchItem key={val}>{val}</SearchItem>)
+      }
+    }
+    if (fouce || mouseIn) {
       return (
-        <SearchContainer>
+        <SearchContainer
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <SearchTitle>
             热门搜索
-            <SearchSwitch>换一批</SearchSwitch>
+            <SearchSwitch onClick={() => handleChangePage(page, totalPage)}>
+              换一批
+            </SearchSwitch>
           </SearchTitle>
-          {list.map((item) => {
-            return <SearchItem key={item}>{item}</SearchItem>
-          })}
+          {pageList}
         </SearchContainer>
       )
     }
@@ -79,6 +99,9 @@ const mapStateToProps = (state) => {
   return {
     fouce: state.getIn(['header', 'fouce']),
     list: state.getIn(['header', 'list']),
+    page: state.getIn(['header', 'page']),
+    totalPage: state.getIn(['header', 'totalPage']),
+    mouseIn: state.getIn(['header', 'mouseIn']),
   }
 }
 
@@ -90,6 +113,19 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleInputBlur() {
       dispatch(actionCreator.searchBlur())
+    },
+    handleMouseEnter() {
+      dispatch(actionCreator.mouseEnter())
+    },
+    handleMouseLeave() {
+      dispatch(actionCreator.mouseLeave())
+    },
+    handleChangePage(page, totalPage) {
+      if (page < totalPage) {
+        dispatch(actionCreator.changePage(page + 1))
+      } else {
+        dispatch(actionCreator.changePage(1))
+      }
     },
   }
 }

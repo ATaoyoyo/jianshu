@@ -128,7 +128,9 @@ export const SearchContainer = styled.div`
   box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: #fff;
   color: #777;
+  z-index: 99;
 `
 
 export const SearchTitle = styled.div`

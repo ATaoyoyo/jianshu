@@ -45,7 +45,10 @@ class Header extends Component {
         >
           <SearchTitle>
             热门搜索
-            <SearchSwitch onClick={() => handleChangePage(page, totalPage)}>
+            <SearchSwitch
+              onClick={() => handleChangePage(page, totalPage, this.spinIcon)}
+            >
+              <span className="iconfont iconchange"></span>
               换一批
             </SearchSwitch>
           </SearchTitle>
@@ -77,8 +80,8 @@ class Header extends Component {
             <span
               className={
                 !fouce
-                  ? 'iconfont iconfangdajing'
-                  : 'iconfont iconfangdajing fouced'
+                  ? 'iconfont iconfangdajing zoom'
+                  : 'iconfont iconfangdajing zoom fouced'
               }
             ></span>
             {this.showSearchItem()}
@@ -120,7 +123,7 @@ const mapDispatchToProps = (dispatch) => {
     handleMouseLeave() {
       dispatch(actionCreator.mouseLeave())
     },
-    handleChangePage(page, totalPage) {
+    handleChangePage(page, totalPage, spin) {
       if (page < totalPage) {
         dispatch(actionCreator.changePage(page + 1))
       } else {

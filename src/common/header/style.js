@@ -139,6 +139,7 @@ export const SearchTitle = styled.div`
 export const SearchSwitch = styled.div`
   float: right;
   font-size: 14px;
+  cursor: pointer;
 `
 
 export const SearchItem = styled.div`
@@ -149,4 +150,5 @@ export const SearchItem = styled.div`
   border: 1px solid #eee;
   border-radius: 3px;
   color: #787878;
+  cursor: pointer;
 `

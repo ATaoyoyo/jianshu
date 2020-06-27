@@ -60,7 +60,7 @@ class Header extends Component {
   }
 
   render() {
-    const { fouce, handleInputBlur, handleInputFocuce } = this.props
+    const { fouce, handleInputBlur, handleInputFocuce, list } = this.props
     return (
       <HeaderWrapper>
         <Logo />
@@ -73,7 +73,7 @@ class Header extends Component {
             <CSSTransition in={fouce} timeout={200} classNames="slide">
               <NavSearch
                 className={fouce ? 'fouced' : ''}
-                onFocus={handleInputFocuce}
+                onFocus={() => handleInputFocuce(list)}
                 onBlur={handleInputBlur}
               />
             </CSSTransition>
@@ -110,8 +110,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleInputFocuce() {
-      dispatch(actionCreator.getList())
+    handleInputFocuce(list) {
+      list.size === 0 && dispatch(actionCreator.getList())
       dispatch(actionCreator.searchFouce())
     },
     handleInputBlur() {

@@ -58,6 +58,7 @@ export const ListItem = styled.div`
     float: right;
     width: 150px;
     height: 100px;
+    border-radius: 4px;
   }
 `
 
@@ -72,5 +73,18 @@ export const ListInfo = styled.div`
     font-size: 13px;
     line-height: 24px;
     color: #969696;
+  }
+`
+export const RecommendWrapper = styled.div`
+  width: 200px;
+`
+
+export const RecommendItem = styled.div`
+  margin-top: 10px;
+  width: 280px;
+  height: 50px;
+  background-size: contain;
+  img {
+    width: 100%;
   }
 `

@@ -22,7 +22,7 @@ const initState = fromJS({
       desc:
         '前段时间，看到秋叶老师发的一条微博： “今天老婆打的，的士司机主动给她说，刚刚上车的一个男的，在车上就哭起来了。 这个人年前还是一个企业高管，年...',
       imgUrl:
-        'https://upload-images.jianshu.io/upload_images/3540924-2d4dcafd6f2ecbfe.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+        'https://upload-images.jianshu.io/upload_images/2425636-9b5676d54f686366.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ const initState = fromJS({
       desc:
         '前段时间，看到秋叶老师发的一条微博： “今天老婆打的，的士司机主动给她说，刚刚上车的一个男的，在车上就哭起来了。 这个人年前还是一个企业高管，年...',
       imgUrl:
-        'https://upload-images.jianshu.io/upload_images/3540924-2d4dcafd6f2ecbfe.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+        'https://upload-images.jianshu.io/upload_images/2425636-9b5676d54f686366.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
     },
     {
       id: 3,
@@ -38,7 +38,7 @@ const initState = fromJS({
       desc:
         '前段时间，看到秋叶老师发的一条微博： “今天老婆打的，的士司机主动给她说，刚刚上车的一个男的，在车上就哭起来了。 这个人年前还是一个企业高管，年...',
       imgUrl:
-        'https://upload-images.jianshu.io/upload_images/3540924-2d4dcafd6f2ecbfe.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+        'https://upload-images.jianshu.io/upload_images/2425636-9b5676d54f686366.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
     },
     {
       id: 4,
@@ -46,7 +46,7 @@ const initState = fromJS({
       desc:
         '前段时间，看到秋叶老师发的一条微博： “今天老婆打的，的士司机主动给她说，刚刚上车的一个男的，在车上就哭起来了。 这个人年前还是一个企业高管，年...',
       imgUrl:
-        'https://upload-images.jianshu.io/upload_images/3540924-2d4dcafd6f2ecbfe.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+        'https://upload-images.jianshu.io/upload_images/2425636-9b5676d54f686366.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
     },
     {
       id: 5,
@@ -54,9 +54,15 @@ const initState = fromJS({
       desc:
         '前段时间，看到秋叶老师发的一条微博： “今天老婆打的，的士司机主动给她说，刚刚上车的一个男的，在车上就哭起来了。 这个人年前还是一个企业高管，年...',
       imgUrl:
-        'https://upload-images.jianshu.io/upload_images/3540924-2d4dcafd6f2ecbfe.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240',
+        'https://upload-images.jianshu.io/upload_images/2425636-9b5676d54f686366.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240',
     },
   ],
+  recommendList: [
+    {id: 1, imgUrl: 'https://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png'},
+    {id: 2, imgUrl: 'https://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'},
+    {id: 3, imgUrl: 'https://cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'},
+    {id: 4, imgUrl: 'https://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'},
+  ]
 })
 
 export default (state = initState, action) => {

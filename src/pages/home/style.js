@@ -88,3 +88,13 @@ export const RecommendItem = styled.div`
     width: 100%;
   }
 `
+export const LoadMore = styled.div`
+  margin: 30px 0;
+  width: 100%;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background: #a5a5a5;
+  border-radius: 20px;
+  cursor: pointer;
+`

@@ -80,6 +80,7 @@ const initState = fromJS({
         'https://cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png',
     },
   ],
+  articlePage: 1,
 })
 
 export default (state = initState, action) => {
@@ -89,6 +90,11 @@ export default (state = initState, action) => {
         topicList: fromJS(action.topicList),
         articleList: fromJS(action.articleList),
         recommendList: fromJS(action.recommendList),
+      })
+    case constants.ADD_HOME_LIST:
+      return state.merge({
+        articleList: state.get('articleList').concat(action.articleList),
+        articlePage: action.nextPage,
       })
     default:
       return state

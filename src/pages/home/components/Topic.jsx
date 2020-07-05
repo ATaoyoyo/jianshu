@@ -22,7 +22,7 @@ class Topic extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  list: state.getIn(['home', 'topPicList']),
+  list: state.getIn(['home', 'topicList']),
 })
 
 export default connect(mapStateToProps, null)(Topic)

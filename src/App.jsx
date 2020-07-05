@@ -11,13 +11,11 @@ export default class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          <Fragment>
+          <Router>
             <Header />
-            <Router>
-              <Route path="/" exact component={Home}></Route>
-              <Route path="/detail" exact component={Detail}></Route>
-            </Router>
-          </Fragment>
+            <Route path="/" exact component={Home}></Route>
+            <Route path="/detail" exact component={Detail}></Route>
+          </Router>
         </Provider>
       </div>
     )

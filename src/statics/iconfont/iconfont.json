@@ -6,6 +6,13 @@
   "description": "简书iconfont仓库",
   "glyphs": [
     {
+      "icon_id": "6819100",
+      "name": "top",
+      "font_class": "top",
+      "unicode": "e6a9",
+      "unicode_decimal": 59049
+    },
+    {
       "icon_id": "8426020",
       "name": "change",
       "font_class": "change",

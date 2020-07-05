@@ -15,6 +15,11 @@ const getHomeList = (list, nextPage) => ({
   nextPage,
 })
 
+export const getScrollTop = (show) => ({
+  type: constants.SCROLL_TOP,
+  show
+})
+
 export const getHomeInfo = () => {
   return (dispatch) => {
     axios.get('/api/home.json').then((res) => {
